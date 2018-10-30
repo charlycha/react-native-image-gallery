@@ -15,6 +15,7 @@ export default class ViewTransformer extends React.Component {
         enableTranslate: PropTypes.bool,
         maxOverScrollDistance: PropTypes.number,
         maxScale: PropTypes.number,
+        autoMaxScale: PropTypes.number,
         contentAspectRatio: PropTypes.number,
         enableResistance: PropTypes.bool,
         onViewTransformed: PropTypes.func,
@@ -305,10 +306,10 @@ export default class ViewTransformer extends React.Component {
     performDoubleTapUp (pivotX, pivotY) {
         let curScale = this.state.scale;
         let scaleBy;
-        if (curScale > (1 + this.props.maxScale) / 2) {
+        if (curScale > (1 + this.props.autoMaxScale) / 2) {
             scaleBy = 1 / curScale;
         } else {
-            scaleBy = this.props.maxScale / curScale;
+            scaleBy = this.props.autoMaxScale / curScale;
         }
 
         let rect = transformedRect(

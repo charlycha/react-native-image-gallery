@@ -260,7 +260,7 @@ export default class ViewPager extends PureComponent {
     }
 
     keyExtractor (item, index) {
-        return index;
+        return '' + index;
     }
 
     renderRow ({ item, index }) {
@@ -325,12 +325,14 @@ export default class ViewPager extends PureComponent {
                   data={pageDataArray}
                   renderItem={this.renderRow}
                   onLayout={this.onLayout}
-
+                  
+                  getItemLayout={this.getItemLayout}
+                  initialScrollIndex={(this.props.initialPage || undefined)}
                   // use contentOffset instead of initialScrollIndex so that we don't have
                   // to use the buggy 'getItemLayout' prop. See
                   // https://github.com/facebook/react-native/issues/15734#issuecomment-330616697 and
                   // https://github.com/facebook/react-native/issues/14945#issuecomment-354651271
-                  contentOffset = {{x: this.getScrollOffsetOfPage(parseInt(this.props.initialPage)), y:0}}
+                //   contentOffset = {{x: this.getScrollOffsetOfPage(parseInt(this.props.initialPage)), y:0}}
               />
             </View>
         );

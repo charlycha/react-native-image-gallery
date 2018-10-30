@@ -16,6 +16,7 @@ export default class Gallery extends PureComponent {
         initialPage: PropTypes.number,
         scrollViewStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
         pageMargin: PropTypes.number,
+        maxScaleRatio: PropTypes.number,
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
@@ -225,7 +226,7 @@ export default class Gallery extends PureComponent {
     }
 
     renderPage (pageData, pageId) {
-        const { onViewTransformed, onTransformGestureReleased, errorComponent, imageComponent } = this.props;
+        const { onViewTransformed, onTransformGestureReleased, errorComponent, imageComponent, maxScaleRatio } = this.props;
         return (
             <TransformableImage
               onViewTransformed={((transform) => {
@@ -240,6 +241,7 @@ export default class Gallery extends PureComponent {
               errorComponent={errorComponent}
               imageComponent={imageComponent}
               image={pageData}
+              maxScaleRatio={maxScaleRatio}
             />
         );
     }

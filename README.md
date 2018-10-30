@@ -3,12 +3,17 @@
 ## Table of contents
 
 - [react-native-image-gallery](#react-native-image-gallery)
-    - [Table of contents](#table-of-contents)
-    - [Install](#install)
-    - [Usage example](#usage-example)
-    - [Remote and local images](#remote-and-local-images)
-    - [Props](#props)
-    - [Scroll state and events](#scroll-state-and-events)
+  - [Table of contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage example](#usage-example)
+  - [Remote and local images](#remote-and-local-images)
+  - [Props](#props)
+  - [Scroll state and events](#scroll-state-and-events)
+
+>This is a fork from https://github.com/archriss/react-native-image-gallery at version 2.1.5. I fix:
+- "Invalid child context type 'virtualizedCell.cellKey'" warning in dev mode
+- Fix initialPage not working on react-native version 0.55.1
+- Add maxScaleRatio props to have a ratio for double tap zoom
 
 >This used to be a fork of [ldn0x7dc/react-native-gallery](https://github.com/ldn0x7dc/react-native-gallery) but the original repo is no longer maintained, so here's our own repo. Props to [ldn0x7dc](https://github.com/ldn0x7dc) for his amazing work! 👏👏👏
 
@@ -60,20 +65,20 @@ This component supports both remote images by specifying `source.uri`, and local
 
 ## Props
 
-Prop | Description | Type | Default
------- | ------ | ------ | ------
-`images` | Your array of images | `array` | Required
-`initialPage` | Image displayed first | `number` | `0`
-`imageComponent` | Custom function to render your images, 1st param is the image props, 2nd is its dimensions | `function` | `<Image>` component
-`errorComponent` | Custom function to render the page of an image that couldn't be displayed | `function` | A `<View>` with a stylized error
-`flatListProps` | Props to be passed to the underlying `FlatList` | `object` | `{windowSize: 3}`
-`pageMargin` | Blank space to show between images | `number` | `0`
-`onPageSelected` | Fired with the index of page that has been selected | `function`
-`onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events) | `function`
-`onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events) | `function`
-`scrollViewStyle` | Custom style for the `FlatList` component | `object` | `{}`
-`onSingleTapConfirmed` | Fired after a single tap | `function`
-`onLongPress` | Fired after a long press | `function`
+| Prop                       | Description                                                                                           | Type       | Default                          |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- | ---------- | -------------------------------- |
+| `images`                   | Your array of images                                                                                  | `array`    | Required                         |
+| `initialPage`              | Image displayed first                                                                                 | `number`   | `0`                              |
+| `imageComponent`           | Custom function to render your images, 1st param is the image props, 2nd is its dimensions            | `function` | `<Image>` component              |
+| `errorComponent`           | Custom function to render the page of an image that couldn't be displayed                             | `function` | A `<View>` with a stylized error |
+| `flatListProps`            | Props to be passed to the underlying `FlatList`                                                       | `object`   | `{windowSize: 3}`                |
+| `pageMargin`               | Blank space to show between images                                                                    | `number`   | `0`                              |
+| `onPageSelected`           | Fired with the index of page that has been selected                                                   | `function` |
+| `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events) | `function` |
+| `onPageScroll`             | Scroll event, see [scroll state and events](#scroll-state-and-events)                                 | `function` |
+| `scrollViewStyle`          | Custom style for the `FlatList` component                                                             | `object`   | `{}`                             |
+| `onSingleTapConfirmed`     | Fired after a single tap                                                                              | `function` |
+| `onLongPress`              | Fired after a long press                                                                              | `function` |
 
 ## Scroll state and events
 
